@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cursova"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.397">
+    <properties></properties>
+
+
+
+            <testcase
+                name="clickOnCloseThisTask"
+                time="0.062"
+                classname="ui.CloseTask.CloseTask">
+            </testcase>
+            <testcase
+                name="openTask"
+                time="0.218"
+                classname="ui.CloseTask.CloseTask">
+            </testcase>
+            <testcase
+                name="popUpElements"
+                time="0.117"
+                classname="ui.CloseTask.CloseTask">
+            </testcase>
+</testsuite>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cursova"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="2.257">
+    <properties></properties>
+
+
+
+            <testcase
+                name="validLoginTest"
+                time="0.436"
+                classname="ui.LoginTests">
+            </testcase>
+            <testcase
+                name="invalidUsernameTest"
+                time="0.350"
+                classname="ui.LoginTests">
+            </testcase>
+            <testcase
+                name="invalidPasswordTest"
+                time="1.471"
+                classname="ui.LoginTests">
+            </testcase>
+</testsuite>

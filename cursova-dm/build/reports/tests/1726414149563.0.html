@@ -1,0 +1,461 @@
+<html lang="en"><head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="robots" content="noindex,nofollow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="referrer" content="no-referrer">
+
+        
+        <style>.task-board.color-yellow, .task-summary-container.color-yellow, .color-picker-square.color-yellow, .task-board-category.color-yellow, .table-list-category.color-yellow, .task-tag.color-yellow {background-color: rgb(245, 247, 196);border-color: rgb(223, 227, 45)}td.color-yellow { background-color: rgb(245, 247, 196)}.table-list-row.color-yellow {border-left: 5px solid rgb(223, 227, 45)}.task-board.color-blue, .task-summary-container.color-blue, .color-picker-square.color-blue, .task-board-category.color-blue, .table-list-category.color-blue, .task-tag.color-blue {background-color: rgb(219, 235, 255);border-color: rgb(168, 207, 255)}td.color-blue { background-color: rgb(219, 235, 255)}.table-list-row.color-blue {border-left: 5px solid rgb(168, 207, 255)}.task-board.color-green, .task-summary-container.color-green, .color-picker-square.color-green, .task-board-category.color-green, .table-list-category.color-green, .task-tag.color-green {background-color: rgb(189, 244, 203);border-color: rgb(74, 227, 113)}td.color-green { background-color: rgb(189, 244, 203)}.table-list-row.color-green {border-left: 5px solid rgb(74, 227, 113)}.task-board.color-purple, .task-summary-container.color-purple, .color-picker-square.color-purple, .task-board-category.color-purple, .table-list-category.color-purple, .task-tag.color-purple {background-color: rgb(223, 176, 255);border-color: rgb(205, 133, 254)}td.color-purple { background-color: rgb(223, 176, 255)}.table-list-row.color-purple {border-left: 5px solid rgb(205, 133, 254)}.task-board.color-red, .task-summary-container.color-red, .color-picker-square.color-red, .task-board-category.color-red, .table-list-category.color-red, .task-tag.color-red {background-color: rgb(255, 187, 187);border-color: rgb(255, 151, 151)}td.color-red { background-color: rgb(255, 187, 187)}.table-list-row.color-red {border-left: 5px solid rgb(255, 151, 151)}.task-board.color-orange, .task-summary-container.color-orange, .color-picker-square.color-orange, .task-board-category.color-orange, .table-list-category.color-orange, .task-tag.color-orange {background-color: rgb(255, 215, 179);border-color: rgb(255, 172, 98)}td.color-orange { background-color: rgb(255, 215, 179)}.table-list-row.color-orange {border-left: 5px solid rgb(255, 172, 98)}.task-board.color-grey, .task-summary-container.color-grey, .color-picker-square.color-grey, .task-board-category.color-grey, .table-list-category.color-grey, .task-tag.color-grey {background-color: rgb(238, 238, 238);border-color: rgb(204, 204, 204)}td.color-grey { background-color: rgb(238, 238, 238)}.table-list-row.color-grey {border-left: 5px solid rgb(204, 204, 204)}.task-board.color-brown, .task-summary-container.color-brown, .color-picker-square.color-brown, .task-board-category.color-brown, .table-list-category.color-brown, .task-tag.color-brown {background-color: #d7ccc8;border-color: #4e342e}td.color-brown { background-color: #d7ccc8}.table-list-row.color-brown {border-left: 5px solid #4e342e}.task-board.color-deep_orange, .task-summary-container.color-deep_orange, .color-picker-square.color-deep_orange, .task-board-category.color-deep_orange, .table-list-category.color-deep_orange, .task-tag.color-deep_orange {background-color: #ffab91;border-color: #e64a19}td.color-deep_orange { background-color: #ffab91}.table-list-row.color-deep_orange {border-left: 5px solid #e64a19}.task-board.color-dark_grey, .task-summary-container.color-dark_grey, .color-picker-square.color-dark_grey, .task-board-category.color-dark_grey, .table-list-category.color-dark_grey, .task-tag.color-dark_grey {background-color: #cfd8dc;border-color: #455a64}td.color-dark_grey { background-color: #cfd8dc}.table-list-row.color-dark_grey {border-left: 5px solid #455a64}.task-board.color-pink, .task-summary-container.color-pink, .color-picker-square.color-pink, .task-board-category.color-pink, .table-list-category.color-pink, .task-tag.color-pink {background-color: #f48fb1;border-color: #d81b60}td.color-pink { background-color: #f48fb1}.table-list-row.color-pink {border-left: 5px solid #d81b60}.task-board.color-teal, .task-summary-container.color-teal, .color-picker-square.color-teal, .task-board-category.color-teal, .table-list-category.color-teal, .task-tag.color-teal {background-color: #80cbc4;border-color: #00695c}td.color-teal { background-color: #80cbc4}.table-list-row.color-teal {border-left: 5px solid #00695c}.task-board.color-cyan, .task-summary-container.color-cyan, .color-picker-square.color-cyan, .task-board-category.color-cyan, .table-list-category.color-cyan, .task-tag.color-cyan {background-color: #b2ebf2;border-color: #00bcd4}td.color-cyan { background-color: #b2ebf2}.table-list-row.color-cyan {border-left: 5px solid #00bcd4}.task-board.color-lime, .task-summary-container.color-lime, .color-picker-square.color-lime, .task-board-category.color-lime, .table-list-category.color-lime, .task-tag.color-lime {background-color: #e6ee9c;border-color: #afb42b}td.color-lime { background-color: #e6ee9c}.table-list-row.color-lime {border-left: 5px solid #afb42b}.task-board.color-light_green, .task-summary-container.color-light_green, .color-picker-square.color-light_green, .task-board-category.color-light_green, .table-list-category.color-light_green, .task-tag.color-light_green {background-color: #dcedc8;border-color: #689f38}td.color-light_green { background-color: #dcedc8}.table-list-row.color-light_green {border-left: 5px solid #689f38}.task-board.color-amber, .task-summary-container.color-amber, .color-picker-square.color-amber, .task-board-category.color-amber, .table-list-category.color-amber, .task-tag.color-amber {background-color: #ffe082;border-color: #ffa000}td.color-amber { background-color: #ffe082}.table-list-row.color-amber {border-left: 5px solid #ffa000}</style>        <link rel="stylesheet" href="/assets/css/vendor.min.css?1724015780" media="screen">                    <link rel="stylesheet" href="/assets/css/light.min.css?1724015780" media="screen">                <link rel="stylesheet" href="/assets/css/print.min.css?1724015780" media="print">        
+                    <script defer="" type="text/javascript" src="/assets/js/vendor.min.js?1724015780"></script>            <script defer="" type="text/javascript" src="/assets/js/app.min.js?1724015780"></script>        
+                
+        <link rel="icon" href="/assets/img/adaptive-favicon.svg" type="image/svg+xml">
+        <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+        <link rel="apple-touch-icon" href="/assets/img/touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/touch-icon-ipad-retina.png">
+
+        <title>
+                            Project_1726411271358                    </title>
+
+            </head>
+    <body data-status-url="/?controller=UserAjaxController&amp;action=status" data-login-url="/login" data-keyboard-shortcut-url="/?controller=DocumentationController&amp;action=shortcuts" data-timezone="UTC" data-js-date-format="mm/dd/yy" data-js-time-format="HH:mm">
+
+                    
+
+<header>
+    <div class="title-container">
+        <h1>
+    <span class="logo">
+        <a href="/dashboard" class="" title="Dashboard">K<span>B</span></a>    </span>
+    <span class="title">
+                    Project_1726411271358                        </span>
+            <span class="tooltip"><i class="fa fa-info-circle"></i><script type="text/template"><div class="markdown">Project owner: <strong>user_1726391516075</strong>
+
+<hr>
+
+<p>Description_1726411271360</p></div></script></span>    </h1>
+    </div>
+    <div class="board-selector-container">
+                    <div class="js-select-dropdown-autocomplete-rendered" data-params="{&quot;name&quot;:&quot;boardId&quot;,&quot;placeholder&quot;:&quot;Display another project&quot;,&quot;ariaLabel&quot;:&quot;Display another project&quot;,&quot;items&quot;:{&quot;47&quot;:&quot;Project_1726392852355&quot;,&quot;45&quot;:&quot;g5g5g&quot;,&quot;46&quot;:&quot;trthrthtrh&quot;},&quot;redirect&quot;:{&quot;regex&quot;:&quot;PROJECT_ID&quot;,&quot;url&quot;:&quot;\/board\/PROJECT_ID&quot;},&quot;onFocus&quot;:[&quot;board.selector.open&quot;]}"><div class="select-dropdown-input-container"><input type="hidden" name="boardId" value=""><input type="text" placeholder="Display another project" aria-label="Display another project" class="select-dropdown-input"><i class="fa fa-chevron-down select-dropdown-chevron"></i><span class="select-loading-icon" style="display: none;"><i class="fa fa-spinner fa-pulse"></i></span></div></div>
+            </div>
+    <div class="menus-container">
+        <span class="notification">
+    <a href="/user/43/notifications/web" class="js-modal-medium" title="My notifications"><i class="fa fa-bell fa-fw js-modal-medium" aria-hidden="true"></i></a></span>
+&nbsp;
+    <div class="dropdown header-creation-menu">
+        <a href="#" class="dropdown-menu dropdown-menu-link-icon"><i class="fa fa-plus fa-fw"></i><i class="fa fa-caret-down"></i></a>
+        <ul>
+                                        <li>
+                    <a href="/project/create/personal" class="js-modal-medium" title=""><i class="fa fa-lock fa-fw js-modal-medium" aria-hidden="true"></i>New personal project</a>                </li>
+                                </ul>
+    </div>
+&nbsp;<div class="dropdown">
+    <a href="#" class="dropdown-menu dropdown-menu-link-icon"><div class="avatar avatar-20 avatar-inline"><div class="avatar-letter" style="background-color: rgb(197, 135, 135)" title="user_1726391516075" role="img" aria-label="user_1726391516075">U</div></div><i class="fa fa-caret-down"></i></a>
+    <ul>
+        <li class="no-hover"><strong>user_1726391516075</strong></li>
+        <li>
+            <a href="/dashboard/43" class="" title=""><i class="fa fa-fw fa-tachometer" aria-hidden="true"></i>My dashboard</a>        </li>
+        <li>
+            <a href="/user/show/43" class="" title=""><i class="fa fa-fw fa-home" aria-hidden="true"></i>My profile</a>        </li>
+        <li>
+            <a href="/projects" class="" title=""><i class="fa fa-fw fa-folder" aria-hidden="true"></i>Projects management</a>        </li>
+        
+        
+        <li>
+            <i class="fa fa-fw fa-life-ring" aria-hidden="true"></i>
+            <a href="https://docs.kanboard.org/v1/user/" target="_blank">Documentation</a>        </li>
+                    <li>
+                <a href="/logout" class="" title=""><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>Logout</a>            </li>
+            </ul>
+</div>
+    </div>
+</header>
+        <section class="page">
+                        <section id="main">
+
+    <div class="project-header">
+    
+    <div class="dropdown-component">
+        <div class="dropdown">
+    <a href="#" class="dropdown-menu action-menu" title="Configure this project" aria-label="Configure this project"><i class="fa fa-cog"></i><i class="fa fa-caret-down"></i></a>
+    <ul>
+                <li>
+            <span class="filter-display-mode" style="display: none;">
+                <a href="/?controller=BoardAjaxController&amp;action=expand&amp;project_id=48" class="board-display-mode" title="Keyboard shortcut: &quot;s&quot;"><i class="fa fa-fw fa-expand" aria-hidden="true"></i>Expand tasks</a>            </span>
+            <span class="filter-display-mode">
+                <a href="/?controller=BoardAjaxController&amp;action=collapse&amp;project_id=48" class="board-display-mode" title="Keyboard shortcut: &quot;s&quot;"><i class="fa fa-fw fa-compress" aria-hidden="true"></i>Collapse tasks</a>            </span>
+        </li>
+        <li>
+            <span class="filter-compact">
+                <i class="fa fa-th fa-fw"></i> <a href="#" class="filter-toggle-scrolling" title="Keyboard shortcut: &quot;c&quot;">Compact view</a>
+            </span>
+            <span class="filter-wide" style="display: none">
+                <i class="fa fa-arrows-h fa-fw"></i> <a href="#" class="filter-toggle-scrolling" title="Keyboard shortcut: &quot;c&quot;">Horizontal scrolling</a>
+            </span>
+        </li>
+        <li>
+            <span class="filter-vert-collapse">
+                <i class="fa fa-arrow-up fa-fw"></i> <a href="#" class="filter-vert-toggle-collapse">Collapse vertically</a>
+            </span>
+            <span class="filter-vert-expand" style="display: none">
+                <i class="fa fa-arrow-down fa-fw"></i> <a href="#" class="filter-vert-toggle-collapse">Expand vertically</a>
+            </span>
+        </li>
+        
+                    <li>
+                <a href="/project/48/task/create" class="js-modal-large" title=""><i class="fa fa-plus fa-fw js-modal-large" aria-hidden="true"></i>Add a new task</a>            </li>
+        
+        <li>
+            <a href="/project/48/activity" class="js-modal-medium" title=""><i class="fa fa-dashboard fa-fw js-modal-medium" aria-hidden="true"></i>Activity</a>        </li>
+
+                    <li>
+                <a href="/project/48/customer-filters/create" class="js-modal-medium" title=""><i class="fa fa-filter fa-fw js-modal-medium" aria-hidden="true"></i>Add custom filters</a>            </li>
+        
+        
+        
+                    <li>
+                <a href="/analytics/tasks/48" class="js-modal-large" title=""><i class="fa fa-line-chart fa-fw js-modal-large" aria-hidden="true"></i>Analytics</a>            </li>
+        
+                    <li>
+                <a href="/export/tasks/48" class="js-modal-medium" title=""><i class="fa fa-upload fa-fw js-modal-medium" aria-hidden="true"></i>Exports</a>            </li>
+        
+                    <li>
+                <a href="/project/48/import" class="js-modal-medium" title=""><i class="fa fa-download fa-fw js-modal-medium" aria-hidden="true"></i>Import tasks</a>            </li>
+        
+                    <li>
+                <a href="/project/48" class="" title=""><i class="fa fa-fw fa-cog" aria-hidden="true"></i>Configure this project</a>            </li>
+        
+        <li>
+            <a href="/projects" class="" title=""><i class="fa fa-fw fa-folder" aria-hidden="true"></i>Manage projects</a>        </li>
+    </ul>
+</div>
+    </div>
+    <div class="views-switcher-component">
+        <ul class="views">
+    
+    
+    <li>
+        <a href="/project/48/overview/status%3Aopen" class="view-overview" title="Keyboard shortcut: &quot;v o&quot;"><i class="fa fa-fw fa-eye" aria-hidden="true"></i>Overview</a>    </li>
+
+    
+    <li class="active">
+        <a href="/board/48/search/status%3Aopen" class="view-board" title="Keyboard shortcut: &quot;v b&quot;"><i class="fa fa-fw fa-th" aria-hidden="true"></i>Board</a>    </li>
+
+    
+    <li>
+        <a href="/list/48/search/status%3Aopen" class="view-listing" title="Keyboard shortcut: &quot;v l&quot;"><i class="fa fa-fw fa-list" aria-hidden="true"></i>List</a>    </li>
+
+    </ul>
+    </div>
+    <div class="filter-box-component">
+        <div class="filter-box">
+    <form method="get" action="/" class="search">
+        <input type="hidden" name="controller" id="form-controller" value="BoardViewController">        <input type="hidden" name="action" id="form-action" value="show">        <input type="hidden" name="plugin" id="form-plugin" value="">        <input type="hidden" name="project_id" id="form-project_id" value="48">
+        <div class="input-addon">
+            <input type="text" name="search" id="form-search" value="status:open" class="input-addon-field" placeholder="Filter" aria-label="Filter">            <div class="input-addon-item">
+                <div class="dropdown">
+    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="Default filters" aria-label="Default filters"><i class="fa fa-filter fa-fw"></i><i class="fa fa-caret-down"></i></a>
+    <ul>
+        <li><a href="#" class="filter-helper filter-reset" data-filter="status:open" title="Keyboard shortcut: &quot;r&quot;">Reset filters</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:me">My tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:me due:tomorrow">My tasks due tomorrow</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:today">Tasks due today</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:tomorrow">Tasks due tomorrow</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:yesterday">Tasks due yesterday</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:closed">Closed tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open">Open tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:nobody">Not assigned</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:anybody">Assigned</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open category:none">No category</a></li>
+        <li>
+            <a href="https://docs.kanboard.org/v1/user/search" target="_blank">View advanced search syntax</a>        </li>
+    </ul>
+</div>
+            </div>
+
+            
+                        <div class="input-addon-item">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="User filters" aria-label="Custom filters"><i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i></a>
+                    <ul>
+                        <li><a href="#" class="filter-helper" data-unique-filter="assignee:nobody">Not assigned</a></li>
+                        <li><a href="#" class="filter-helper" data-unique-filter="assignee:anybody">Assigned</a></li>
+                                                    <li><a href="#" class="filter-helper" data-unique-filter="assignee:&quot;user_1726391516075&quot;">user_1726391516075</a></li>
+                                            </ul>
+                </div>
+            </div>
+            
+                    </div>
+
+    </form>
+</div>
+    </div>
+
+    </div>
+
+    <div id="board-container" class="">
+    
+                    <table id="board" class="board-project-48" data-project-id="48" data-check-interval="10" data-save-url="/?controller=BoardAjaxController&amp;action=save&amp;project_id=48&amp;csrf_token=28b29b5d6cecc483db4c8af99d68f83efeff757b7f8e985adf9bb2c06cba91c2" data-reload-url="/?controller=BoardAjaxController&amp;action=reload&amp;project_id=48&amp;csrf_token=06e4a002d964979d7581293eda3c5edd3f549dfa694744a9714b6a8a1f8ce0a2" data-check-url="/?controller=BoardAjaxController&amp;action=check&amp;project_id=48&amp;timestamp=1726414145&amp;csrf_token=994ea57fe671f5444a5aa8265856da480789efab09ffb914f058960e56f4fc3e" data-task-creation-url="/project/48/task/create">
+        
+                    
+                
+                
+                
+                <!-- column titles -->
+
+
+<tbody><tr class="board-swimlane-columns-48">
+        <th class="board-column-header board-column-header-189" data-column-id="189">
+
+        <!-- column in collapsed mode -->
+        <div class="board-column-collapsed">
+            <small class="board-column-header-task-count" title="Task count">
+                <span id="task-number-column-189"><span class="ui-helper-hidden-accessible">Task count </span>0</span>
+            </small>
+        </div>
+
+        <!-- column in expanded mode -->
+        <div class="board-column-expanded board-column-expanded-header">
+                            <div class="board-add-icon"><a href="/board/48/task/create/swimlane/48/column/189" class="js-modal-large" title="Add a new task"><i class="fa fa-plus fa-fw js-modal-large" aria-hidden="true"></i></a></div>            
+            <span class="board-column-title">
+                                    <span class="dropdown">
+                        <a href="#" class="dropdown-menu">Backlog <i class="fa fa-caret-down"></i></a>
+                        <ul>
+                            <li>
+                                <i class="fa fa-minus-square fa-fw"></i>
+                                <a href="#" class="board-toggle-column-view" data-column-id="189">Hide this column</a>
+                            </li>
+                                                            <li>
+                                    <a href="/board/48/task/bulk/create/swimlane/48/column/189" class="js-modal-medium" title=""><i class="fa fa-align-justify fa-fw js-modal-medium" aria-hidden="true"></i>Create tasks in bulk</a>                                </li>
+                            
+                                                    </ul>
+                        
+                                            </span>
+                            </span>
+
+            <span class="pull-right board-column-header-task-count">
+                
+                
+                
+                
+                            </span>
+                    </div>
+    </th>
+        <th class="board-column-header board-column-header-190" data-column-id="190">
+
+        <!-- column in collapsed mode -->
+        <div class="board-column-collapsed">
+            <small class="board-column-header-task-count" title="Task count">
+                <span id="task-number-column-190"><span class="ui-helper-hidden-accessible">Task count </span>0</span>
+            </small>
+        </div>
+
+        <!-- column in expanded mode -->
+        <div class="board-column-expanded board-column-expanded-header">
+                            <div class="board-add-icon"><a href="/board/48/task/create/swimlane/48/column/190" class="js-modal-large" title="Add a new task"><i class="fa fa-plus fa-fw js-modal-large" aria-hidden="true"></i></a></div>            
+            <span class="board-column-title">
+                                    <span class="dropdown">
+                        <a href="#" class="dropdown-menu">Ready <i class="fa fa-caret-down"></i></a>
+                        <ul>
+                            <li>
+                                <i class="fa fa-minus-square fa-fw"></i>
+                                <a href="#" class="board-toggle-column-view" data-column-id="190">Hide this column</a>
+                            </li>
+                                                            <li>
+                                    <a href="/board/48/task/bulk/create/swimlane/48/column/190" class="js-modal-medium" title=""><i class="fa fa-align-justify fa-fw js-modal-medium" aria-hidden="true"></i>Create tasks in bulk</a>                                </li>
+                            
+                                                    </ul>
+                        
+                                            </span>
+                            </span>
+
+            <span class="pull-right board-column-header-task-count">
+                
+                
+                
+                
+                            </span>
+                    </div>
+    </th>
+        <th class="board-column-header board-column-header-191" data-column-id="191">
+
+        <!-- column in collapsed mode -->
+        <div class="board-column-collapsed">
+            <small class="board-column-header-task-count" title="Task count">
+                <span id="task-number-column-191"><span class="ui-helper-hidden-accessible">Task count </span>0</span>
+            </small>
+        </div>
+
+        <!-- column in expanded mode -->
+        <div class="board-column-expanded board-column-expanded-header">
+                            <div class="board-add-icon"><a href="/board/48/task/create/swimlane/48/column/191" class="js-modal-large" title="Add a new task"><i class="fa fa-plus fa-fw js-modal-large" aria-hidden="true"></i></a></div>            
+            <span class="board-column-title">
+                                    <span class="dropdown">
+                        <a href="#" class="dropdown-menu">Work in progress <i class="fa fa-caret-down"></i></a>
+                        <ul>
+                            <li>
+                                <i class="fa fa-minus-square fa-fw"></i>
+                                <a href="#" class="board-toggle-column-view" data-column-id="191">Hide this column</a>
+                            </li>
+                                                            <li>
+                                    <a href="/board/48/task/bulk/create/swimlane/48/column/191" class="js-modal-medium" title=""><i class="fa fa-align-justify fa-fw js-modal-medium" aria-hidden="true"></i>Create tasks in bulk</a>                                </li>
+                            
+                                                    </ul>
+                        
+                                            </span>
+                            </span>
+
+            <span class="pull-right board-column-header-task-count">
+                
+                
+                
+                
+                            </span>
+                    </div>
+    </th>
+        <th class="board-column-header board-column-header-192" data-column-id="192">
+
+        <!-- column in collapsed mode -->
+        <div class="board-column-collapsed">
+            <small class="board-column-header-task-count" title="Task count">
+                <span id="task-number-column-192"><span class="ui-helper-hidden-accessible">Task count </span>0</span>
+            </small>
+        </div>
+
+        <!-- column in expanded mode -->
+        <div class="board-column-expanded board-column-expanded-header">
+                            <div class="board-add-icon"><a href="/board/48/task/create/swimlane/48/column/192" class="js-modal-large" title="Add a new task"><i class="fa fa-plus fa-fw js-modal-large" aria-hidden="true"></i></a></div>            
+            <span class="board-column-title">
+                                    <span class="dropdown">
+                        <a href="#" class="dropdown-menu">Done <i class="fa fa-caret-down"></i></a>
+                        <ul>
+                            <li>
+                                <i class="fa fa-minus-square fa-fw"></i>
+                                <a href="#" class="board-toggle-column-view" data-column-id="192">Hide this column</a>
+                            </li>
+                                                            <li>
+                                    <a href="/board/48/task/bulk/create/swimlane/48/column/192" class="js-modal-medium" title=""><i class="fa fa-align-justify fa-fw js-modal-medium" aria-hidden="true"></i>Create tasks in bulk</a>                                </li>
+                            
+                                                    </ul>
+                        
+                                            </span>
+                            </span>
+
+            <span class="pull-right board-column-header-task-count">
+                
+                
+                
+                
+                            </span>
+                    </div>
+    </th>
+    </tr>
+
+
+                <!-- task row -->
+<tr class="board-swimlane board-swimlane-tasks-48">
+            <td class="
+            board-column-189                        ">
+
+            <!-- tasks list -->
+            <div class="board-task-list board-column-expanded sortable-column ui-sortable" data-column-id="189" data-swimlane-id="48" data-task-limit="0" style="min-height: 60px;">
+
+                            </div>
+
+            <!-- column in collapsed mode (rotated text) -->
+            <div class="board-column-collapsed board-task-list sortable-column ui-sortable" data-column-id="189" data-swimlane-id="48" data-task-limit="0" style="min-height: 60px;">
+                <div class="board-rotation-wrapper">
+                    <div class="board-column-title board-rotation board-toggle-column-view" data-column-id="189" title="Backlog">
+                        <i class="fa fa-plus-square" title="Show this column" role="button" aria-label="Show this column"></i> Backlog                    </div>
+                </div>
+            </div>
+        </td>
+            <td class="
+            board-column-190                        ">
+
+            <!-- tasks list -->
+            <div class="board-task-list board-column-expanded sortable-column ui-sortable" data-column-id="190" data-swimlane-id="48" data-task-limit="0" style="min-height: 60px;">
+
+                            </div>
+
+            <!-- column in collapsed mode (rotated text) -->
+            <div class="board-column-collapsed board-task-list sortable-column ui-sortable" data-column-id="190" data-swimlane-id="48" data-task-limit="0" style="min-height: 60px;">
+                <div class="board-rotation-wrapper">
+                    <div class="board-column-title board-rotation board-toggle-column-view" data-column-id="190" title="Ready">
+                        <i class="fa fa-plus-square" title="Show this column" role="button" aria-label="Show this column"></i> Ready                    </div>
+                </div>
+            </div>
+        </td>
+            <td class="
+            board-column-191                        ">
+
+            <!-- tasks list -->
+            <div class="board-task-list board-column-expanded sortable-column ui-sortable" data-column-id="191" data-swimlane-id="48" data-task-limit="0" style="min-height: 60px;">
+
+                            </div>
+
+            <!-- column in collapsed mode (rotated text) -->
+            <div class="board-column-collapsed board-task-list sortable-column ui-sortable" data-column-id="191" data-swimlane-id="48" data-task-limit="0" style="min-height: 60px;">
+                <div class="board-rotation-wrapper">
+                    <div class="board-column-title board-rotation board-toggle-column-view" data-column-id="191" title="Work in progress">
+                        <i class="fa fa-plus-square" title="Show this column" role="button" aria-label="Show this column"></i> Work in progress                    </div>
+                </div>
+            </div>
+        </td>
+            <td class="
+            board-column-192                        ">
+
+            <!-- tasks list -->
+            <div class="board-task-list board-column-expanded sortable-column ui-sortable" data-column-id="192" data-swimlane-id="48" data-task-limit="0" style="min-height: 60px;">
+
+                            </div>
+
+            <!-- column in collapsed mode (rotated text) -->
+            <div class="board-column-collapsed board-task-list sortable-column ui-sortable" data-column-id="192" data-swimlane-id="48" data-task-limit="0" style="min-height: 60px;">
+                <div class="board-rotation-wrapper">
+                    <div class="board-column-title board-rotation board-toggle-column-view" data-column-id="192" title="Done">
+                        <i class="fa fa-plus-square" title="Show this column" role="button" aria-label="Show this column"></i> Done                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+
+                    
+        </tbody></table>
+
+    </div>
+
+</section>
+        </section>
+                
+
+<div id="modal-overlay"><div id="modal-box" style="width: 1350px;"><div id="modal-header"><a href="#" id="modal-close-button"><i class="fa fa-times"></i></a></div><div id="modal-content"><div class="page-header">
+    <h2>Project_1726411271358 &gt; New task</h2>
+</div>
+<form method="post" action="/?controller=TaskCreationController&amp;action=save&amp;project_id=48" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="8c1bc82a6f53cf639382e44004b775697e456d829038fbc986b1c6aa4c0f71cb">
+    <div class="task-form-container">
+        <div class="task-form-main-column">
+            <label for="form-title" class="ui-helper-hidden-accessible">Title</label><input type="text" name="title" id="form-title" class="" autofocus="" required="" tabindex="1" placeholder="Title"><span class="form-required">*</span>            <div class="js-text-editor-rendered" data-params="{&quot;name&quot;:&quot;description&quot;,&quot;css&quot;:&quot;&quot;,&quot;required&quot;:false,&quot;tabindex&quot;:2,&quot;labelPreview&quot;:&quot;Preview&quot;,&quot;previewUrl&quot;:&quot;\/?controller=TaskAjaxController&amp;action=preview&quot;,&quot;labelWrite&quot;:&quot;Write&quot;,&quot;labelTitle&quot;:&quot;Title&quot;,&quot;placeholder&quot;:&quot;Write your text in Markdown&quot;,&quot;ariaLabel&quot;:&quot;Description&quot;,&quot;autofocus&quot;:false,&quot;suggestOptions&quot;:{&quot;triggers&quot;:{&quot;#&quot;:&quot;\/?controller=TaskAjaxController&amp;action=suggest&amp;search=SEARCH_TERM&quot;,&quot;@&quot;:&quot;\/?controller=UserAjaxController&amp;action=mention&amp;project_id=48&amp;search=SEARCH_TERM&quot;}}}"><script type="text/template"></script><div class="text-editor"><div class="text-editor-view-mode" style="display: none;"><div class="text-editor-toolbar"><a href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Write</a></div><div class="text-editor-preview-area markdown"></div></div><div class="text-editor-write-mode"><div class="text-editor-toolbar"><a href="#"><i class="fa fa-eye fa-fw"></i> Preview</a><a href="#"><i class="fa fa-bold fa-fw"></i></a><a href="#"><i class="fa fa-italic fa-fw"></i></a><a href="#"><i class="fa fa-strikethrough fa-fw"></i></a><a href="#"><i class="fa fa-link fa-fw"></i></a><a href="#"><i class="fa fa-quote-right fa-fw"></i></a><a href="#"><i class="fa fa-list-ul fa-fw"></i></a><a href="#"><i class="fa fa-code fa-fw"></i></a></div><textarea name="description" tabindex="2" aria-label="Description" placeholder="Write your text in Markdown"></textarea></div></div></div>                        <label for="form-tags[]">Tags</label><input type="hidden" name="tags[]" value=""><select name="tags[]" id="form-tags" class="tag-autocomplete select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true"></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 300px;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="3" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                    </div>
+
+        <div class="task-form-secondary-column">
+            <label for="form-color_id">Color</label><select name="color_id" id="form-color_id" class="color-picker select2-hidden-accessible" tabindex="-1" aria-hidden="true"><option value="yellow" selected="selected">Yellow</option><option value="blue">Blue</option><option value="green">Green</option><option value="purple">Purple</option><option value="red">Red</option><option value="orange">Orange</option><option value="grey">Grey</option><option value="brown">Brown</option><option value="deep_orange">Deep Orange</option><option value="dark_grey">Dark Grey</option><option value="pink">Pink</option><option value="teal">Teal</option><option value="cyan">Cyan</option><option value="lime">Lime</option><option value="light_green">Light Green</option><option value="amber">Amber</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 220px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="4" aria-labelledby="select2-form-color_id-container"><span class="select2-selection__rendered" id="select2-form-color_id-container" title="Yellow"><div class="color-picker-option"><div class="color-picker-square color-yellow"></div><div class="color-picker-label">Yellow</div></div></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>            <label for="form-owner_id">Assignee</label><select name="owner_id" id="form-owner_id" class="" tabindex="5"><option value="0">Unassigned</option><option value="43">user_1726391516075</option></select>&nbsp;<small><a href="#" class="assign-me" data-target-id="form-owner_id" data-current-id="43" title="Assign to me" aria-label="Assign to me">Me</a></small>                                    <label for="form-column_id">Column</label><select name="column_id" id="form-column_id" class="" tabindex="8"><option value="189" selected="selected">Backlog</option><option value="190">Ready</option><option value="191">Work in progress</option><option value="192">Done</option></select>            <label for="form-priority">Priority</label><select name="priority" id="form-priority" class="" tabindex="9"><option value="0" selected="selected">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>
+                    </div>
+
+        <div class="task-form-secondary-column">
+            <label for="form-date_due">Due Date</label><input type="text" name="date_due" id="form-date_due" value="" class="form-datetime hasDatepicker" placeholder="09/15/2024 15:29" tabindex="10">            <label for="form-date_started">Start Date</label><input type="text" name="date_started" id="form-date_started" value="" class="form-datetime hasDatepicker" placeholder="09/15/2024 15:29" tabindex="11">            <label for="form-time_estimated">Original estimate</label><input type="text" name="time_estimated" id="form-time_estimated" class=" form-numeric" tabindex="12"> hours            <label for="form-time_spent">Time spent</label><input type="text" name="time_spent" id="form-time_spent" class=" form-numeric" tabindex="13"> hours            <label for="form-score">Complexity</label><input type="number" name="score" id="form-score" class="" tabindex="14">            <label for="form-reference">Reference</label><input type="text" name="reference" id="form-reference" class="form-input-small" tabindex="15">
+                    </div>
+
+        <div class="task-form-bottom">
+
+            
+                            <label><input type="checkbox" name="another_task" class="" value="1" tabindex="16">&nbsp;Create another task</label>                <label><input type="checkbox" name="duplicate_multiple_projects" class="" value="1" tabindex="17">&nbsp;Duplicate to multiple projects</label>            
+            <div class="js-submit-buttons-rendered" data-params="{&quot;submitLabel&quot;:&quot;Save&quot;,&quot;orLabel&quot;:&quot;or&quot;,&quot;cancelLabel&quot;:&quot;cancel&quot;,&quot;color&quot;:&quot;blue&quot;,&quot;tabindex&quot;:null,&quot;disabled&quot;:false}"><div class="form-actions"><button type="submit" class="btn btn-blue">Save</button> or <a href="#">cancel</a></div></div>        </div>
+    </div>
+</form>
+</div></div></div><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div></body></html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cursova"
+           tests="3"
+           failures="1"
+           errors="0"
+           skipped="2"
+           time="1.044">
+    <properties></properties>
+
+            <testcase
+                name="setup"
+                time="1.044"
+                classname="FullCycleTest">
+
+            <failure type="java.lang.AssertionError" message="Status code is not 200! expected [200] but found [403]">
+                <![CDATA[java.lang.AssertionError: Status code is not 200! expected [200] but found [403]
+                org.testng.Assert.fail(Assert.java:111)org.testng.Assert.failNotEquals(Assert.java:1578)org.testng.Assert.assertEqualsImpl(Assert.java:150)org.testng.Assert.assertEquals(Assert.java:132)org.testng.Assert.assertEquals(Assert.java:1419)org.testng.Assert.assertEquals(Assert.java:1383)api.User.CreateUserAPI.createUserSuccess(CreateUserAPI.java:55)FullCycleTest.setup(FullCycleTest.java:24)java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)java.base/java.lang.reflect.Method.invoke(Method.java:580)org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)java.base/java.util.ArrayList.forEach(ArrayList.java:1597)org.testng.TestRunner.privateRun(TestRunner.java:739)org.testng.TestRunner.run(TestRunner.java:614)org.testng.SuiteRunner.runTest(SuiteRunner.java:421)org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)org.testng.SuiteRunner.run(SuiteRunner.java:312)org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)org.testng.TestNG.runSuitesLocally(TestNG.java:1208)org.testng.TestNG.runSuites(TestNG.java:1112)org.testng.TestNG.run(TestNG.java:1079)com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+            </failure>
+    </testcase>
+
+            <testcase
+                name="tearDown"
+                time="0.0"
+                classname="FullCycleTest">
+            </testcase>
+            <testcase
+                name="createTaskInProject"
+                time="0.0"
+                classname="FullCycleTest">
+            </testcase>
+
+</testsuite>

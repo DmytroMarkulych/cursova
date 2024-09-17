@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Create Close comment"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="1.278">
+    <properties></properties>
+
+
+
+            <testcase
+                name="addNewTask"
+                time="1.155"
+                classname="ui.CreateTask.CreateTask">
+            </testcase>
+            <testcase
+                name="openProject"
+                time="0.123"
+                classname="ui.CreateTask.CreateTask">
+            </testcase>
+</testsuite>

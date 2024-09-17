@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cursova"
+           tests="6"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="5.043">
+    <properties></properties>
+
+
+
+            <testcase
+                name="validLoginTest"
+                time="1.511"
+                classname="ui.CreateProject.CreateProject">
+            </testcase>
+            <testcase
+                name="clickOnCreateProject"
+                time="0.347"
+                classname="ui.CreateProject.CreateProject">
+            </testcase>
+            <testcase
+                name="createProjectWithoutName"
+                time="0.797"
+                classname="ui.CreateProject.CreateProject">
+            </testcase>
+            <testcase
+                name="createNewProjectWithValidData"
+                time="0.720"
+                classname="ui.CreateProject.CreateProject">
+            </testcase>
+            <testcase
+                name="createProjectWithUniqueIDName"
+                time="0.903"
+                classname="ui.CreateProject.CreateProject">
+            </testcase>
+            <testcase
+                name="createProjectWithInvalidIdentifier"
+                time="0.765"
+                classname="ui.CreateProject.CreateProject">
+            </testcase>
+</testsuite>

@@ -1,0 +1,66 @@
+<div>POST to http://127.0.0.1/jsonrpc.php</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;method&quot;: &quot;createTask&quot;,
+    &quot;id&quot;: 1726516448639,
+    &quot;params&quot;: {
+        &quot;owner_id&quot;: 106,
+        &quot;creator_id&quot;: 106,
+        &quot;date_due&quot;: &quot;2024-07-01 14:25&quot;,
+        &quot;description&quot;: &quot;This is a test task created via API.&quot;,
+        &quot;category_id&quot;: 1,
+        &quot;score&quot;: 5,
+        &quot;title&quot;: &quot;Test Task&quot;,
+        &quot;project_id&quot;: 97,
+        &quot;color_id&quot;: &quot;green&quot;,
+        &quot;column_id&quot;: null,
+        &quot;recurrence_status&quot;: 1,
+        &quot;recurrence_trigger&quot;: 0,
+        &quot;recurrence_factor&quot;: 0,
+        &quot;recurrence_timeframe&quot;: 0,
+        &quot;recurrence_basedate&quot;: 0,
+        &quot;date_started&quot;: &quot;2024-06-01 10:00&quot;,
+        &quot;priority&quot;: 3
+    }
+}    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;http://127.0.0.1/jsonrpc.php&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;method&quot;: &quot;createTask&quot;,
+    &quot;id&quot;: 1726516448639,
+    &quot;params&quot;: {
+        &quot;owner_id&quot;: 106,
+        &quot;creator_id&quot;: 106,
+        &quot;date_due&quot;: &quot;2024-07-01 14:25&quot;,
+        &quot;description&quot;: &quot;This is a test task created via API.&quot;,
+        &quot;category_id&quot;: 1,
+        &quot;score&quot;: 5,
+        &quot;title&quot;: &quot;Test Task&quot;,
+        &quot;project_id&quot;: 97,
+        &quot;color_id&quot;: &quot;green&quot;,
+        &quot;column_id&quot;: null,
+        &quot;recurrence_status&quot;: 1,
+        &quot;recurrence_trigger&quot;: 0,
+        &quot;recurrence_factor&quot;: 0,
+        &quot;recurrence_timeframe&quot;: 0,
+        &quot;recurrence_basedate&quot;: 0,
+        &quot;date_started&quot;: &quot;2024-06-01 10:00&quot;,
+        &quot;priority&quot;: 3
+    }
+}&#39;
+</div>

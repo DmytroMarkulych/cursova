@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Create Add comment"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.463">
+    <properties></properties>
+
+
+
+            <testcase
+                name="popUpCommentElements"
+                time="0.298"
+                classname="ui.AddCommentForTask.AddCommentForTask">
+            </testcase>
+            <testcase
+                name="openTask"
+                time="0.165"
+                classname="ui.AddCommentForTask.AddCommentForTask">
+            </testcase>
+</testsuite>

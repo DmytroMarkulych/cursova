@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Create Add comment"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.047">
+    <properties></properties>
+
+
+
+            <testcase
+                name="addProjectUserSuccess"
+                time="0.047"
+                classname="api.Project.AddProjectUserAPI">
+            </testcase>
+</testsuite>

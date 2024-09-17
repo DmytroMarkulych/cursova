@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="API Tests"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.073">
+    <properties></properties>
+
+
+
+            <testcase
+                name="getProjectByIdSuccess"
+                time="0.073"
+                classname="api.Project.GetProjectByIdAPI">
+            </testcase>
+</testsuite>

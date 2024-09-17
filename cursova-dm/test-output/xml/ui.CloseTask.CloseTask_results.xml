@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Create Close comment"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.505">
+    <properties></properties>
+
+
+
+            <testcase
+                name="clickOnCloseThisTask"
+                time="0.054"
+                classname="ui.CloseTask.CloseTask">
+            </testcase>
+            <testcase
+                name="openTask"
+                time="0.137"
+                classname="ui.CloseTask.CloseTask">
+            </testcase>
+            <testcase
+                name="popUpElements"
+                time="0.314"
+                classname="ui.CloseTask.CloseTask">
+            </testcase>
+</testsuite>
