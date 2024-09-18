@@ -23,23 +23,23 @@ public class CreateUserAPI extends BaseAPI {
     @Description("Test to successfully create a new user")
     @Step("Creating a new user")
     public void createUserSuccess() throws IOException {
-        // Завантажуємо існуючі дані з конфігураційного файлу
+        // Load existing data from the configuration file
         Properties props = new Properties();
         try (FileInputStream input = new FileInputStream("/home/dmytro/IdeaProjects/cursova/cursova-dm/config.properties")) {
             props.load(input);
         }
 
-        // Динамічно створюємо username і password
+        // Dynamically generate username and password
         String username = "user_" + System.currentTimeMillis();
         String password = "123456";
 
-        // Створюємо тіло запиту для створення користувача
+        // Create request body for user creation
         String requestBody = buildRequestBody(username, password);
 
-        // Виконуємо POST запит для створення користувача
+        // Execute POST request to create the user
         Response response = sendCreateUserRequest(requestBody);
 
-        // Валідуємо відповідь
+        // Validate the response
         validateCreateUserResponse(response, props, username, password);
     }
 
@@ -68,26 +68,26 @@ public class CreateUserAPI extends BaseAPI {
 
     @Step("Validating create user response and updating config file")
     private void validateCreateUserResponse(Response response, Properties props, String username, String password) throws IOException {
-        // Виводимо response body в консоль для налагодження
+        // Log response body to console for debugging
         System.out.println("Response body: " + response.getBody().asString());
 
-        // Перевіряємо статус відповіді
+        // Validate the response status
         Assert.assertEquals(response.getStatusCode(), 200, "Status code is not 200!");
 
-        // Отримуємо ID створеного користувача
+        // Get the ID of the created user
         String userId = response.jsonPath().getString("result");
 
-        // Перевіряємо, що користувача створено успішно
+        // Ensure the user was created successfully
         Assert.assertNotNull(userId, "User creation failed!");
 
         System.out.println("User created with ID: " + userId);
 
-        // Оновлюємо userId, username, і password у конфігураційному файлі
+        // Update userId, username, and password in the configuration file
         props.setProperty("userId", userId);
         props.setProperty("username", username);
         props.setProperty("password", password);
 
-        // Зберігаємо оновлений конфігураційний файл
+        // Save the updated configuration file
         try (FileOutputStream output = new FileOutputStream("/home/dmytro/IdeaProjects/cursova/cursova-dm/config.properties")) {
             props.store(output, null);
         }

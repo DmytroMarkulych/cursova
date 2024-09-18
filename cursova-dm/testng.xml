@@ -1,7 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Automation Test Suite">
 
-    <!-- Тест для створення завдання -->
+    <!-- UI Tests -->
+
+    <!-- Create Task Tests -->
     <test name="Create Task - Chrome Headless">
         <parameter name="browser" value="chrome"/>
         <parameter name="headless" value="true"/>
@@ -41,7 +43,7 @@
         </classes>
     </test>
 
-    <!-- Тест для додавання коментаря -->
+    <!-- Add Comment to Task Tests -->
     <test name="Create Add Comment - Chrome Headless">
         <parameter name="browser" value="chrome"/>
         <parameter name="headless" value="true"/>
@@ -84,6 +86,7 @@
         </classes>
     </test>
 
+    <!-- Close Task Tests -->
     <test name="Create Close Task - Chrome Headless">
         <parameter name="browser" value="chrome"/>
         <parameter name="headless" value="true"/>
@@ -98,7 +101,7 @@
         </classes>
     </test>
 
-    <test name="Create Close Task- Chrome">
+    <test name="Create Close Task - Chrome">
         <parameter name="browser" value="chrome"/>
         <parameter name="headless" value="false"/>
         <classes>
@@ -112,10 +115,9 @@
         </classes>
     </test>
 
-    <test name="Create Close Task- Firefox">
+    <test name="Create Close Task - Firefox">
         <parameter name="browser" value="firefox"/>
         <parameter name="headless" value="false"/>
-
         <classes>
             <class name="api.User.CreateUserAPI" />
             <class name="api.Project.CreateProjectAPI" />
@@ -127,9 +129,7 @@
         </classes>
     </test>
 
-
-
-
+    <!-- Create Project UI Tests -->
     <test name="Create Project UI - Chrome Headless">
         <parameter name="browser" value="chrome"/>
         <parameter name="headless" value="true"/>
@@ -160,7 +160,8 @@
         </classes>
     </test>
 
-    <test name="Login User User Valid - Chrome Headless">
+    <!-- Login Valid Tests -->
+    <test name="Login User Valid - Chrome Headless">
         <parameter name="browser" value="chrome"/>
         <parameter name="headless" value="true"/>
         <classes>
@@ -170,7 +171,7 @@
         </classes>
     </test>
 
-    <test name="Login User User Valid - Chrome">
+    <test name="Login User Valid - Chrome">
         <parameter name="browser" value="chrome"/>
         <parameter name="headless" value="false"/>
         <classes>
@@ -190,7 +191,8 @@
         </classes>
     </test>
 
-    <test name="Login User User Invalid - Chrome Headless">
+    <!-- Login Invalid Tests -->
+    <test name="Login User Invalid - Chrome Headless">
         <parameter name="browser" value="chrome"/>
         <parameter name="headless" value="true"/>
         <classes>
@@ -198,7 +200,7 @@
         </classes>
     </test>
 
-    <test name="Login User User Invalid - Chrome">
+    <test name="Login User Invalid - Chrome">
         <parameter name="browser" value="chrome"/>
         <parameter name="headless" value="false"/>
         <classes>
@@ -214,6 +216,9 @@
         </classes>
     </test>
 
+    <!-- API Tests -->
+
+    <!-- API Tests for Project -->
     <test name="API Tests Create Project">
         <classes>
             <class name="api.User.CreateUserAPI" />
@@ -228,6 +233,7 @@
         </classes>
     </test>
 
+    <!-- API Tests for Tasks -->
     <test name="API Tests Task">
         <classes>
             <class name="api.User.CreateUserAPI" />
@@ -246,6 +252,7 @@
         </classes>
     </test>
 
+    <!-- API Tests for User Management -->
     <test name="API User">
         <classes>
             <class name="api.User.CreateUserAPI" />

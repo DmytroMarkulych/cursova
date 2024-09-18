@@ -17,7 +17,7 @@ public class CreateProject extends BaseUI {
     @Step("Logging in and verifying dashboard")
     public void validLoginTest() {
         login.performLogin();
-        $("h1").shouldHave(text("Dashboard"));  // Перевіряємо, що дашборд відображається
+        $("h1").shouldHave(text("Dashboard"));  // Verify that the dashboard is displayed
     }
 
     @Test(dependsOnMethods = "validLoginTest")
@@ -25,8 +25,8 @@ public class CreateProject extends BaseUI {
     @Description("Test to open the Create Project form")
     @Step("Click on 'New personal project' link")
     public void clickOnCreateProject() {
-        clickNewProjectLink();  // Використовуємо метод для кліку на посилання "New project"
-        $("h2").shouldHave(text("New personal project"));  // Перевіряємо, що відображається заголовок "New project"
+        clickNewProjectLink();  // Use method to click on "New project" link
+        $("h2").shouldHave(text("New personal project"));  // Verify that "New project" header is displayed
     }
 
     @Test(dependsOnMethods = "clickOnCreateProject")
@@ -39,7 +39,7 @@ public class CreateProject extends BaseUI {
         $("#project-creation-form label:nth-child(9) input[type=checkbox]").click();
         $("#form-task_limit").setValue("2");
         $("#project-creation-form .js-submit-buttons-rendered button").click();
-        $("h1").shouldHave(text("Test Project"));  // Перевіряємо успішне створення проекту з назвою
+        $("h1").shouldHave(text("Test Project"));  // Verify successful project creation with the name
     }
 
     @Test(dependsOnMethods = "clickOnCreateProject")
@@ -47,7 +47,7 @@ public class CreateProject extends BaseUI {
     @Description("Test to verify that the project identifier must be unique")
     @Step("Creating a project with a non-unique identifier")
     public void createProjectWithUniqueIDName() {
-        navigateToDashboard();  // Повертаємося на дашборд
+        navigateToDashboard();  // Navigate back to the dashboard
         clickNewProjectLink();
         $("#form-name").setValue("Test Project");
         $("#form-identifier").setValue("NewProjectID");
@@ -82,7 +82,7 @@ public class CreateProject extends BaseUI {
         clickCancelButton();
     }
 
-    // Допоміжні методи з анотаціями Allure
+    // Helper methods with Allure annotations
     @Step("Clicking on 'New personal project' link")
     private void clickNewProjectLink() {
         $("#main ul li:first-child a").shouldHave(text("New personal project")).click();

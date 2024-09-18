@@ -22,18 +22,18 @@ public class LoginTestsValid {
     @BeforeClass
     @Step("Setup test environment and load configuration")
     public void setUp() throws IOException {
-        // Завантажуємо конфігурацію з файлу
+        // Load configuration from file
         Properties properties = new Properties();
         FileInputStream fileInput = new FileInputStream("/home/dmytro/IdeaProjects/cursova/cursova-dm/config.properties");
         properties.load(fileInput);
-        Configuration.baseUrl = properties.getProperty("baseUrl", "http://127.0.0.1"); // Значення за замовчуванням
+        Configuration.baseUrl = properties.getProperty("baseUrl", "http://127.0.0.1"); // Default value
 
-        // Налаштовуємо браузер
+        // Configure the browser
         Configuration.browser = "chrome";
         //Configuration.headless = true;
         Configuration.browserSize = "1920x1080";
 
-        // Ініціалізуємо клас Login з передачею параметрів через конструктор
+        // Initialize the Login class by passing parameters through the constructor
         String username = properties.getProperty("username");
         String password = properties.getProperty("password");
         login = new Login(username, password);
@@ -45,10 +45,10 @@ public class LoginTestsValid {
     @Story("Valid Login Test")
     public void validLoginTest() {
         stepLogin(login.getUsername(), login.getPassword());
-        login.performLogin();  // Викликаємо метод логіну
+        login.performLogin();  // Call the login method
 
-        // Додаткова перевірка після успішного логіну
-        $("h1").shouldHave(text("Dashboard"));  // Перевіряємо, що дашборд відображається
+        // Additional verification after successful login
+        $("h1").shouldHave(text("Dashboard"));  // Verify that the dashboard is displayed
     }
 
     @Step("Perform login with username: {0} and password: {1}")

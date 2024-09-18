@@ -17,7 +17,7 @@ public class CloseTask extends BaseUI {
     @BeforeClass
     @Step("Setup: Logging in and verifying dashboard")
     public void setup() {
-        // Виконуємо логін і перевіряємо, що користувач потрапляє на дашборд
+        // Perform login and verify the user lands on the dashboard
         login.performLogin();
         $("h1").shouldHave(text("Dashboard"));
     }
@@ -27,13 +27,13 @@ public class CloseTask extends BaseUI {
     @Description("Open task from the project board")
     @Step("Opening task: {0}")
     public void openTask() {
-        // Припускаємо, що 'taskName' встановлено в BaseUI або передано динамічно
+        // Assume 'taskName' is set in BaseUI or passed dynamically
         String nameTask = this.taskName;
 
-        // Відкриваємо конкретне завдання з дашборду, клікаючи на його посилання
+        // Open a specific task from the dashboard by clicking on its link
         $x("//a[text()='" + nameTask + "']").shouldBe(visible).click();
 
-        // Перевіряємо, що відображається дошка проекту
+        // Verify that the project board is displayed
         $("#task-summary > h2").shouldHave(text(taskName));
     }
 

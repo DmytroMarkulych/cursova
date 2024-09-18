@@ -23,13 +23,13 @@ public class LoginTestsInvalid extends BaseUI  {
     @BeforeClass
     @Step("Setup test environment and load configuration")
     public void setUp() throws IOException {
-        // Завантажуємо конфігурацію з файлу
+        // Load configuration from file
         Properties properties = new Properties();
         FileInputStream fileInput = new FileInputStream("/home/dmytro/IdeaProjects/cursova/cursova-dm/config.properties");
         properties.load(fileInput);
-        Configuration.baseUrl = properties.getProperty("baseUrl", "http://127.0.0.1"); // Значення за замовчуванням
+        Configuration.baseUrl = properties.getProperty("baseUrl", "http://127.0.0.1"); // Default value
 
-        // Налаштовуємо браузер
+        // Configure the browser
         Configuration.browser = "chrome";
         Configuration.headless = true;
         Configuration.browserSize = "1920x1080";
@@ -40,13 +40,13 @@ public class LoginTestsInvalid extends BaseUI  {
     @Description("Test to verify login failure with an invalid username")
     @Story("Invalid Username Test")
     public void invalidUsernameTest() {
-        // Ініціалізуємо екземпляр класу Login з неправильним Username
+        // Initialize the Login class instance with an incorrect username
         Login invalidLogin = new Login("invalid_user", "admin");
 
         stepLogin("invalid_user", "admin");
-        invalidLogin.performLogin();  // Викликаємо метод логіну
+        invalidLogin.performLogin();  // Call the login method
 
-        // Перевіряємо, що відображається повідомлення про помилку
+        // Verify that an error message is displayed
         $(".alert").shouldHave(text("Bad username or password"));
     }
 
@@ -55,13 +55,13 @@ public class LoginTestsInvalid extends BaseUI  {
     @Description("Test to verify login failure with an invalid password")
     @Story("Invalid Password Test")
     public void invalidPasswordTest() {
-        // Ініціалізуємо екземпляр класу Login з неправильним Password
+        // Initialize the Login class instance with an incorrect password
         Login invalidLogin = new Login("admin", "invalid_user");
 
         stepLogin("admin", "invalid_user");
-        invalidLogin.performLogin();  // Викликаємо метод логіну
+        invalidLogin.performLogin();  // Call the login method
 
-        // Перевіряємо, що відображається повідомлення про помилку
+        // Verify that an error message is displayed
         $(".alert").shouldHave(text("Bad username or password"));
     }
 

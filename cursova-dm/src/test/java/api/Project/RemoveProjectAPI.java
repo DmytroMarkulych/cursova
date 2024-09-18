@@ -22,17 +22,17 @@ public class RemoveProjectAPI extends BaseAPI {
     @Description("Test to successfully remove an existing project")
     @Step("Removing project by ID")
     public void removeProjectSuccess() throws IOException {
-        // Завантажуємо projectId з конфігураційного файлу
+        // Load projectId from the configuration file
         Properties props = new Properties();
         try (FileInputStream input = new FileInputStream("/home/dmytro/IdeaProjects/cursova/cursova-dm/config.properties")) {
             props.load(input);
         }
         String projectId = props.getProperty("projectId");
 
-        // Перевіряємо, що projectId не порожній
+        // Ensure projectId is not null
         Assert.assertNotNull(projectId, "Project ID is not set in the config file!");
 
-        // Створюємо тіло запиту
+        // Create request body
         String requestBody = "{\n" +
                 "    \"jsonrpc\": \"2.0\",\n" +
                 "    \"method\": \"removeProject\",\n" +
@@ -42,10 +42,10 @@ public class RemoveProjectAPI extends BaseAPI {
                 "    }\n" +
                 "}";
 
-        // Виконуємо POST запит для видалення проекту
+        // Execute POST request to remove the project
         Response response = sendPostRequest(requestBody);
 
-        // Валідуємо відповідь
+        // Validate the response
         validateProjectRemoval(response, projectId);
     }
 
@@ -61,10 +61,10 @@ public class RemoveProjectAPI extends BaseAPI {
 
     @Step("Validating project removal response")
     private void validateProjectRemoval(Response response, String projectId) {
-        // Виводимо response body в консоль
+        // Log response body to console
         System.out.println("Response body: " + response.getBody().asString());
 
-        // Перевірка статусу та результату
+        // Validate status and result
         Assert.assertEquals(response.getStatusCode(), 200);
         Boolean result = response.jsonPath().getBoolean("result");
         Assert.assertTrue(result, "Expected project to be removed but got failure!");

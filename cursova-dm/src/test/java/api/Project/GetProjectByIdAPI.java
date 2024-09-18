@@ -22,17 +22,17 @@ public class GetProjectByIdAPI extends BaseAPI {
     @Description("Test to retrieve project details by project ID")
     @Step("Getting project details by project ID")
     public void getProjectByIdSuccess() throws IOException {
-        // Завантажуємо projectId з конфігураційного файлу
+        // Load projectId from the configuration file
         Properties props = new Properties();
         try (FileInputStream input = new FileInputStream("/home/dmytro/IdeaProjects/cursova/cursova-dm/config.properties")) {
             props.load(input);
         }
         String projectId = props.getProperty("projectId");
 
-        // Перевіряємо, що projectId не порожній
+        // Ensure projectId is not null
         Assert.assertNotNull(projectId, "Project ID is not set in the config file!");
 
-        // Створюємо тіло запиту
+        // Create request body
         String requestBody = "{\n" +
                 "    \"jsonrpc\": \"2.0\",\n" +
                 "    \"method\": \"getProjectById\",\n" +
@@ -42,10 +42,10 @@ public class GetProjectByIdAPI extends BaseAPI {
                 "    }\n" +
                 "}";
 
-        // Виконуємо POST запит для отримання інформації про проект
+        // Execute POST request to get project details
         Response response = sendPostRequest(requestBody);
 
-        // Валідуємо відповідь
+        // Validate the response
         validateProjectResponse(response, projectId);
     }
 
@@ -61,15 +61,15 @@ public class GetProjectByIdAPI extends BaseAPI {
 
     @Step("Validating project response")
     private void validateProjectResponse(Response response, String projectId) {
-        // Виводимо response body в консоль
+        // Log response body to console
         System.out.println("Response body: " + response.getBody().asString());
 
-        // Перевірка статусу та результату
+        // Validate status and result
         Assert.assertEquals(response.getStatusCode(), 200);
         String projectName = response.jsonPath().getString("result.name");
         Assert.assertNotNull(projectName, "Project not found!");
 
-        // Додаткові перевірки для властивостей проекту
+        // Additional checks for project properties
         String isActive = response.jsonPath().getString("result.is_active");
         Assert.assertEquals(isActive, "1", "Project is not active!");
 

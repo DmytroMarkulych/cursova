@@ -22,23 +22,23 @@ public class RemoveUserAPI extends BaseAPI {
     @Description("Test to successfully remove an existing user by user ID")
     @Step("Removing user by user ID")
     public void removeUserSuccess() throws IOException {
-        // Завантажуємо userId з конфігураційного файлу
+        // Load userId from the configuration file
         Properties props = new Properties();
         try (FileInputStream input = new FileInputStream("/home/dmytro/IdeaProjects/cursova/cursova-dm/config.properties")) {
             props.load(input);
         }
         String userId = props.getProperty("userId");
 
-        // Перевіряємо, що userId не порожній
+        // Ensure userId is not null
         Assert.assertNotNull(userId, "User ID is not set in the config file!");
 
-        // Створюємо тіло запиту
+        // Create request body
         String requestBody = buildRequestBody(userId);
 
-        // Виконуємо POST запит для видалення користувача
+        // Execute POST request to remove the user
         Response response = sendRemoveUserRequest(requestBody);
 
-        // Валідуємо відповідь
+        // Validate the response
         validateRemoveUserResponse(response, userId);
     }
 
@@ -66,10 +66,10 @@ public class RemoveUserAPI extends BaseAPI {
 
     @Step("Validating remove user response")
     private void validateRemoveUserResponse(Response response, String userId) {
-        // Виводимо response body в консоль
+        // Log response body to console
         System.out.println("Response body: " + response.getBody().asString());
 
-        // Перевірка статусу та результату
+        // Validate status and result
         Assert.assertEquals(response.getStatusCode(), 200);
         Boolean result = response.jsonPath().getBoolean("result");
         Assert.assertTrue(result, "Expected user to be removed but got failure!");

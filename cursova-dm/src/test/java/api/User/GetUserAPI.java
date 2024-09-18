@@ -22,23 +22,23 @@ public class GetUserAPI extends BaseAPI {
     @Description("Test to successfully retrieve user details by user ID")
     @Step("Getting user details by user ID")
     public void getUserSuccess() throws IOException {
-        // Завантажуємо дані з конфігураційного файлу
+        // Load data from the configuration file
         Properties props = new Properties();
         try (FileInputStream input = new FileInputStream("/home/dmytro/IdeaProjects/cursova/cursova-dm/config.properties")) {
             props.load(input);
         }
         String userId = props.getProperty("userId");
 
-        // Перевіряємо, що userId не порожній
+        // Ensure userId is not null
         Assert.assertNotNull(userId, "User ID is not set in the config file!");
 
-        // Створюємо тіло запиту
+        // Create request body
         String requestBody = buildRequestBody(userId);
 
-        // Виконуємо POST запит для отримання інформації про користувача
+        // Execute POST request to get user details
         Response response = sendGetUserRequest(requestBody);
 
-        // Валідуємо відповідь
+        // Validate the response
         validateGetUserResponse(response, userId);
     }
 
@@ -66,10 +66,10 @@ public class GetUserAPI extends BaseAPI {
 
     @Step("Validating get user response")
     private void validateGetUserResponse(Response response, String userId) {
-        // Виводимо response body в консоль
+        // Log response body to console
         System.out.println("Response body: " + response.getBody().asString());
 
-        // Перевірка статусу та результатів
+        // Validate status and results
         Assert.assertEquals(response.getStatusCode(), 200);
         String username = response.jsonPath().getString("result.username");
         Assert.assertNotNull(username, "User not found!");

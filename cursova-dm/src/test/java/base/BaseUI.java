@@ -23,24 +23,24 @@ public class BaseUI {
     protected Login login;
 
     @BeforeClass
-    @Parameters({"browser", "headless"}) // Додав параметри браузера та headless-режиму
+    @Parameters({"browser", "headless"}) // Added parameters for browser and headless mode
     public void setUp(String browser, String headless) throws IOException {
-        // Завантаження конфігурації
+        // Load configuration
         loadConfiguration();
-        // Налаштування браузера
+        // Set up browser
         configureBrowser(browser, headless);
-        // Ініціалізація логіну
+        // Initialize login
         initializeLogin();
     }
 
     private void loadConfiguration() throws IOException {
         properties = new Properties();
-        // Завантаження конфігураційного файлу
+        // Load configuration file
         try (FileInputStream fileInput = new FileInputStream(System.getProperty("config.file", "/home/dmytro/IdeaProjects/cursova/cursova-dm/config.properties"))) {
             properties.load(fileInput);
         }
 
-        // Ініціалізуємо загальні змінні
+        // Initialize common variables
         username = properties.getProperty("username", "username");
         password = properties.getProperty("password", "password");
         projectId = properties.getProperty("projectId", "projectId");
@@ -49,21 +49,21 @@ public class BaseUI {
     }
 
     private void configureBrowser(String browser, String headless) {
-        // Налаштування конфігурації Selenide
+        // Set Selenide configuration
         Configuration.baseUrl = properties.getProperty("baseUrl", "http://127.0.0.1");
-        Configuration.browser = browser;  // Використовуємо параметр для браузера
+        Configuration.browser = browser;  // Use parameter for browser
         Configuration.browserSize = properties.getProperty("browserSize", "1920x1080");
-        Configuration.headless = Boolean.parseBoolean(headless);  // Використовуємо параметр для headless-режиму
+        Configuration.headless = Boolean.parseBoolean(headless);  // Use parameter for headless mode
     }
 
     private void initializeLogin() {
-        // Ініціалізація логін-механізму
+        // Initialize login mechanism
         login = new Login(username, password);
     }
 
     @AfterClass
     public void tearDown() {
-        // Закриття браузера після завершення тестів
+        // Close the browser after tests
         closeWebDriver();
     }
 }

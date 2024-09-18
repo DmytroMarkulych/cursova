@@ -17,7 +17,7 @@ public class CreateTask extends BaseUI {
     @BeforeClass
     @Step("Setup: Logging in and verifying dashboard")
     public void setup() {
-        // Виконуємо логін і перевіряємо, що користувач потрапляє на дашборд
+        // Perform login and verify the user lands on the dashboard
         login.performLogin();
         $("h1").shouldHave(text("Dashboard"));
     }
@@ -28,13 +28,13 @@ public class CreateTask extends BaseUI {
     @Description("Test to open a specific project from the dashboard")
     @Step("Opening project: {0}")
     public void openProject() {
-        // Припустимо, що 'projectName' встановлено в BaseUI або передано динамічно
+        // Assume 'projectName' is set in BaseUI or passed dynamically
         String projectName = this.projectName;
 
-        // Відкриваємо конкретний проект з дашборду, клікаючи на його посилання
+        // Open a specific project from the dashboard by clicking on its link
         $x("//a[text()='" + projectName + "']").shouldBe(visible).click();
 
-        // Перевіряємо, що проект відкрито і відображається правильно
+        // Verify the project is opened and displayed correctly
         $("h1").shouldHave(text(projectName));
     }
 
@@ -44,17 +44,17 @@ public class CreateTask extends BaseUI {
     @Description("Test to create a new task in the project")
     @Step("Adding a new task to the project: {0}")
     public void addNewTask() {
-        // Очікуємо на видимість елемента та клікаємо для створення нового завдання
+        // Wait for the element to be visible and click to create a new task
         $x("//*[@id='board']/tbody/tr[1]/th[1]/div[2]/div/a/i").shouldBe(visible).click();
 
-        // Перевіряємо, що назва проекту коректно відображена в заголовку модального вікна
+        // Verify that the project name is correctly displayed in the modal window's header
         $("h2").shouldHave(text(projectName));
 
-        // Заповнюємо всі необхідні поля форми завдання
+        // Fill in all the necessary fields for the task form
         $("#form-title").shouldBe(visible).setValue(taskName);
         $("#modal-content .text-editor-write-mode textarea").shouldBe(visible).setValue("Task Description");
 
-        // Вибір додаткових параметрів
+        // Select additional parameters
         $("#select2-form-color_id-container div").shouldBe(visible).click();
         $("#form-owner_id").shouldBe(visible).selectOption(1);
         $("#form-column_id").shouldBe(visible).selectOption(1);
@@ -66,8 +66,8 @@ public class CreateTask extends BaseUI {
         $("#form-score").shouldBe(visible).setValue("10");
         $("#form-reference").shouldBe(visible).setValue("Task Reference");
 
-        // Зберігаємо завдання
+        // Save the task
         $("#modal-content .task-form-bottom button").shouldBe(visible).click();
-      //  $("#modal-content .task-form-bottom a").shouldBe(visible);
+        //  $("#modal-content .task-form-bottom a").shouldBe(visible);
     }
 }
